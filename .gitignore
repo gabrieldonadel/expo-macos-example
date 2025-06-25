@@ -1,6 +1,7 @@
 # OSX
 #
 .DS_Store
+*.pem
 
 # Xcode
 #
@@ -73,3 +74,23 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
