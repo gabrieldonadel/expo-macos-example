@@ -13,6 +13,7 @@
 		514201552437B4B40078DB4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514201532437B4B40078DB4F /* Main.storyboard */; };
 		514201582437B4B40078DB4F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 514201572437B4B40078DB4F /* main.m */; };
 		62704498B7B2522E341F3079 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C3726A11DC11A854E1C3E7E /* PrivacyInfo.xcprivacy */; };
+		D4972D624A9FB344C1B1E8A0 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961BC1391A5BF7B0498BB7A /* ExpoModulesProvider.swift */; };
 		EA90745E9BF77C62190A9A28 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 5C3726A11DC11A854E1C3E7E /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		514201572437B4B40078DB4F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		514201592437B4B40078DB4F /* entangle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = entangle.entitlements; sourceTree = "<group>"; };
 		5C3726A11DC11A854E1C3E7E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6961BC1391A5BF7B0498BB7A /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-entangle-macOS/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		6964FE65E3AE993DCAEC06EF /* Pods-entangle-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-entangle-macOS.release.xcconfig"; path = "Target Support Files/Pods-entangle-macOS/Pods-entangle-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		CD0187D64CE364892F23EB51 /* libPods-entangle-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-entangle-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -71,6 +73,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4E26556828F433DFD9B7B374 /* entangle-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				6961BC1391A5BF7B0498BB7A /* ExpoModulesProvider.swift */,
+			);
+			name = "entangle-macOS";
+			sourceTree = "<group>";
+		};
 		5142014A2437B4B30078DB4F /* entangle-macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				5C3726A11DC11A854E1C3E7E /* PrivacyInfo.xcprivacy */,
 				203E07B80982E48F1565C3F3 /* Pods */,
+				CFA0AAC33C9DECE91FD8D716 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -114,6 +125,14 @@
 				514201492437B4B30078DB4F /* entangle.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CFA0AAC33C9DECE91FD8D716 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				4E26556828F433DFD9B7B374 /* entangle-macOS */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +161,7 @@
 			buildConfigurationList = 5142015A2437B4B40078DB4F /* Build configuration list for PBXNativeTarget "entangle-macOS" */;
 			buildPhases = (
 				1A938104A937498D81B3BD3B /* [CP] Check Pods Manifest.lock */,
+				B31C7461DE3F85DEFCF6A1A9 /* [Expo] Configure project */,
 				514201452437B4B30078DB4F /* Sources */,
 				514201462437B4B30078DB4F /* Frameworks */,
 				514201472437B4B30078DB4F /* Resources */,
@@ -276,6 +296,9 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-entangle-macOS/Pods-entangle-macOS-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
@@ -284,6 +307,9 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoConstants_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
@@ -294,6 +320,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-entangle-macOS/Pods-entangle-macOS-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B31C7461DE3F85DEFCF6A1A9 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-entangle-macOS/expo-configure-project.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -311,6 +356,7 @@
 			files = (
 				514201582437B4B40078DB4F /* main.m in Sources */,
 				5142014D2437B4B30078DB4F /* AppDelegate.mm in Sources */,
+				D4972D624A9FB344C1B1E8A0 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +388,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = entangle;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -363,6 +410,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = entangle;
 				SWIFT_VERSION = 5.0;
@@ -386,6 +434,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = entangle;
 				SDKROOT = macosx;
@@ -409,6 +458,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = entangle;
 				SDKROOT = macosx;
